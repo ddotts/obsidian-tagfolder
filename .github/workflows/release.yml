@@ -26,7 +26,11 @@ jobs:
     - name: Get Version
       id: version
       run: |
-        echo "tag=$(git describe --abbrev=0 --tags)" >> $GITHUB_OUTPUT
+        if [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+          echo "tag=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
+        else
+          echo "tag=$(node -p "require('./manifest.json').version")" >> $GITHUB_OUTPUT
+        fi
     # Build the plugin
     - name: Build
       id: build
@@ -57,4 +61,4 @@ jobs:
           styles.css
         name: ${{ steps.version.outputs.tag }}
         tag_name: ${{ steps.version.outputs.tag }}
-        draft: true
+        draft: false

@@ -8,6 +8,16 @@ This is the plugin that shows your tags like folders.
 
 Install this plugin, press `Ctrl+p`, and choose "Show Tag Folder".
 
+### Installing with BRAT
+
+This plugin can be installed with Obsidian's BRAT plugin from:
+
+```
+ddotts/obsidian-tagfolder
+```
+
+BRAT installs the published GitHub release assets: `manifest.json`, `main.js`, and `styles.css`.
+
 ### Behavior
 
 This plugin creates a tree by tags permutation.
