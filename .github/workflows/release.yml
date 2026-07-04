@@ -1,9 +1,8 @@
 name: Release Obsidian Plugin
 on:
   push:
-    # Sequence of patterns matched against refs/tags
     tags:
-    - '*' # Push events to matching any tag format, i.e. 1.0, 20.15.10
+      - 'v*'
   workflow_dispatch:
 
 jobs:
@@ -11,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      id-token: write
-      attestations: write
     steps:
     - uses: actions/checkout@v4
       with:
@@ -37,25 +34,18 @@ jobs:
       run: |
         npm ci
         npm run build --if-present
-    # Attest
-    - name: Attest Plugin Artifacts
-      uses: actions/attest-build-provenance@v4
-      with:
-          subject-path: |
-              main.js
-              manifest.json
-              styles.css
     # Package the required files into a zip
     - name: Package
       run: |
-        mkdir ${{ github.event.repository.name }}
-        cp main.js manifest.json styles.css README.md ${{ github.event.repository.name }}
-        zip -r ${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.zip ${{ github.event.repository.name }}
+        plugin_id="$(node -p "require('./manifest.json').id")"
+        mkdir "${plugin_id}"
+        cp main.js manifest.json styles.css README.md "${plugin_id}"
+        zip -r "${plugin_id}-${{ steps.version.outputs.tag }}.zip" "${plugin_id}"
     - name: Create Release and Upload Assets
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          ${{ github.event.repository.name }}-${{ steps.version.outputs.tag }}.zip
+          obsidian-tagfolder-ddotts-${{ steps.version.outputs.tag }}.zip
           main.js
           manifest.json
           styles.css
