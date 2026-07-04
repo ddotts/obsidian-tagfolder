@@ -1,4 +1,6 @@
-## TagFolder
+## TagFolder Tweaks
+
+This is a personal fork of the original [TagFolder](https://github.com/vrtmrz/obsidian-tagfolder) plugin with a small set of tweaks for my own Obsidian setup. The core idea and most behavior come from the upstream project.
 
 This is the plugin that shows your tags like folders.
 

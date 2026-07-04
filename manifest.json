@@ -1,10 +1,10 @@
 {
-    "id": "obsidian-tagfolder",
-    "name": "TagFolder",
+    "id": "obsidian-tagfolder-ddotts",
+    "name": "TagFolder Tweaks",
     "version": "0.18.16",
     "minAppVersion": "1.7.2",
-    "description": "Show tags as folder.",
-    "author": "vorotamoroz",
-    "authorUrl": "https://github.com/vrtmrz",
+    "description": "Show tags as folders, with personal tweaks from the ddotts fork.",
+    "author": "ddotts, based on work by vorotamoroz",
+    "authorUrl": "https://github.com/ddotts/obsidian-tagfolder",
     "isDesktopOnly": false
 }

@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-tagfolder",
+	"name": "obsidian-tagfolder-ddotts",
 	"version": "0.18.16",
-	"description": "Show tags as folder.",
+	"description": "Show tags as folders, with personal tweaks from the ddotts fork.",
 	"main": "main.js",
 	"type": "module",
 	"scripts": {
@@ -16,7 +16,7 @@
 		"version": "node version-bump.mjs"
 	},
 	"keywords": [],
-	"author": "vorotamoroz",
+	"author": "ddotts, based on work by vorotamoroz",
 	"license": "MIT",
 	"devDependencies": {
 		"@eslint/js": "^9.39.1",
